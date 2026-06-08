@@ -159,6 +159,10 @@
     gap: 16px;
   }
 
+  .cards-grid.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   /* ── CARD ── */
   .card {
     background: var(--white);
@@ -194,6 +198,7 @@
 
   .card-policy::before  { background: var(--blue); }
   .card-claims::before  { background: var(--dark); }
+  .card-renewal::before { background: #7c3aed; }
   .card-null::before    { background: var(--border); }
 
   .card-top {
@@ -219,6 +224,11 @@
   .label-claims {
     background: rgba(4,83,112,0.1);
     color: #045370;
+  }
+
+  .label-renewal {
+    background: rgba(124,58,237,0.1);
+    color: #6d28d9;
   }
 
   .label-null {
@@ -247,15 +257,7 @@
     font-size: 0.925rem;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 4px;
     line-height: 1.35;
-  }
-
-  .card-body p {
-    font-size: 0.8rem;
-    color: var(--text-sub);
-    line-height: 1.6;
-    font-weight: 400;
   }
 
   .card-footer {
@@ -319,10 +321,15 @@
     background: var(--white);
   }
 
+  @media (max-width: 800px) {
+    .cards-grid.three-col { grid-template-columns: 1fr 1fr; }
+  }
+
   @media (max-width: 680px) {
     header { padding: 0 20px; }
     .page  { padding: 24px 16px 48px; }
-    .cards-grid { grid-template-columns: 1fr; }
+    .cards-grid,
+    .cards-grid.three-col { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -353,18 +360,17 @@
       <span class="section-title">Affinity</span>
       <span class="section-subtitle">Partner Distribution Channel</span>
     </div>
-    <div class="cards-grid">
+    <div class="cards-grid three-col">
 
       <div class="card card-policy">
         <div class="card-top">
-          <span class="type-label label-policy">Policy Dashboard</span>
+          <span class="type-label label-policy">Business Dashboard</span>
           <span class="status-badge">
             <span class="status-dot dot-live"></span>Live
           </span>
         </div>
         <div class="card-body">
-          <h3>Affinity — Policy Analytics</h3>
-          <p>Track policy issuance, renewals, and performance metrics across affinity channel partners.</p>
+          <h3>Affinity — Business</h3>
         </div>
         <div class="card-footer">
           <span class="source-tag">Zoho Analytics</span>
@@ -383,12 +389,30 @@
           </span>
         </div>
         <div class="card-body">
-          <h3>Affinity — Claims Analytics</h3>
-          <p>Claims analysis and settlement tracking for the affinity channel.</p>
+          <h3>Affinity — Claims</h3>
         </div>
         <div class="card-footer">
           <span class="source-tag">Zoho Analytics</span>
           <a class="btn-open" href="https://analytics.zoho.in/open-view/271980000008526258/de0ffa5c4c20fa86ee22b0d298cf69d3271128e25925d0f6fb10187f1d06b270" target="_blank" rel="noopener">
+            Open
+            <svg viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4.5M11 1V7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="card card-renewal">
+        <div class="card-top">
+          <span class="type-label label-renewal">Renewal Dashboard</span>
+          <span class="status-badge">
+            <span class="status-dot dot-live"></span>Live
+          </span>
+        </div>
+        <div class="card-body">
+          <h3>Affinity — Renewal</h3>
+        </div>
+        <div class="card-footer">
+          <span class="source-tag">Zoho Analytics</span>
+          <a class="btn-open" href="#" target="_blank" rel="noopener">
             Open
             <svg viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4.5M11 1V7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -416,7 +440,6 @@
         </div>
         <div class="card-body">
           <h3>Retail — Policy Analytics</h3>
-          <p>Monitor retail group policy volumes, premium data, and issuance trends across all lines.</p>
         </div>
         <div class="card-footer">
           <span class="source-tag">Zoho Analytics</span>
@@ -436,7 +459,6 @@
         </div>
         <div class="card-body">
           <h3>Retail — Claims Analytics</h3>
-          <p>Claims settlement and TAT tracking for the retail group channel. Dashboard coming soon.</p>
         </div>
         <div class="card-footer">
           <span class="source-tag">Zoho Analytics</span>
@@ -465,7 +487,6 @@
         </div>
         <div class="card-body">
           <h3>Embedded EB — Admin Portal</h3>
-          <p>Admin dashboard for embedded insurance distribution management and configuration.</p>
         </div>
         <div class="card-footer">
           <span class="source-tag">BharatSure</span>
@@ -485,7 +506,6 @@
         </div>
         <div class="card-body">
           <h3>Embedded EB — Employee / HR site</h3>
-          <p>Employee and HR-facing app site for embedded insurance benefits, enrollment and management.</p>
         </div>
         <div class="card-footer">
           <span class="source-tag">BharatSure</span>
